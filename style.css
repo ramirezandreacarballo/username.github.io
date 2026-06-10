@@ -79,7 +79,7 @@ body {
   right: -10%;
   width: 60vw;
   height: 60vh;
-  background: radial-gradient(circle, rgb(255, 0, 191) 0%, rgba(221, 255, 0, 0) 70%);
+  background: radial-gradient(circle, rgb(255, 0, 191) 0%, rgb(221, 255, 0) 70%);
 }
 
 /* Globo 2: Azul/Sombra (centro a la izquierda) */
