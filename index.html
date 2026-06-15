@@ -1,201 +1,165 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Andrea Ramirez Portfolio</title>
-    <link rel="stylesheet" href="style.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-    />
-    <script src="https://cdn.tailwindcss.com"></script>
-  </head>
-  <body>
-    <div class="blur-bg-container">
-  <div class="blur-glow glow-1"></div>
-  <div class="blur-glow glow-2"></div>
-</div>
-    <input type="checkbox" id="theme-switch" class="theme-checkbox" />
-    <div class="main-wrapper">
-      <header>
-        
-<div class="header-container main-wrapper">
-    <nav class="top-nav">
-      <a href="#" class="nav-link">Home</a>
-      <a href="#" class="nav-link">Support</a>
-      <a href="#" class="nav-link">Profile</a>
-      <a href="#" class="nav-link">Contact</a>
-    </nav>
-  </div>
-       <!-- <label for="theme-switch" class="theme-label">
-          <span class="light-icon">☀️</span>
-          <span class="dark-icon">🌙</span>
-        </label>
-        <header class="new-hero-header">----->
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Andrea</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Inter:wght@400;600&family=Pinyon+Script&display=swap" rel="stylesheet">
+</head>
+<body>
 
-</header>
-      </header>
-    <!---------------------------------------------------- HERO------------------------------------------------->
+  
+
+  <nav class="top-nav">
+  <a href="#" class="nav-link">Home</a>
+  <a href="#" class="nav-link">Projects</a>
+  <a href="#" class="nav-link">About me</a>
+  <a href="#" class="nav-link">Contact</a>
+</nav>
+
+<div class="main-wrapper">
     
+    <section class="new-hero-section">
+        <div class="section-container">
+            <h2 class="hero-sub-title">Hola, soy <span style="font-family: 'Pinyon Script', cursive; font-size: 1.5em; vertical-align: middle;">A</span>ndrea!</h2>
+            <h1 class="hero-main-title" id="typing-text"></h1>
+        </div>
+        <div class="hero-image-placeholder">Polaroid Personal</div>
+    </section>
 
-<section class="new-hero-section">
-  <div class="section-container main-wrapper">
-    <!---------ANIMACIÓN ----->
-    <h1 class="hero-main-title">
+    <section id="about">
+        <div class="card profile-card">
+            <span class="badge">Open to job opportunities</span>
+            <h2 class="hero-sub-title">Hola, soy <span style="font-family: 'Pinyon Script', cursive; font-size: 1.5em; vertical-align: middle;">A</span>ndrea!</h2><h1>Hello, I am Andrea</h1>
+            <p>Full Stack Developer en constante evolución y formación intensiva...</p>
+        </div>
+    </section>
 
-  <span id="typing-text"></span><span class="typing-cursor">|</span>
-</h1>
-<p class="hero-sub-title"> <p class="hero-sub-title">
-  Entendí que ninguna forma tiene sentido sin función; hoy traduzco esa premisa en lógica limpia y soluciones reales.
-</p>
+<section id="skills-education" class="skills-section">
+    <h2>My skill set</h2>
+    <div class="skills-card">
+        <ul class="skill-list">
+            <li><span>HTML</span></li>
+            <li><span>CSS</span></li>
+            <li><span>JAVASCRIPT</span></li>
+            <li><span>JAVA</span></li>
+            <li><span>MYSQL</span></li>
+        </ul>
+    </div>
+</section>
+
+
+<section id="projects">
+    <h2>Proyectos</h2>
+    <div class="bento-grid">
+        <!-- Tarjeta 1: Retrozone -->
+        <div class="project-card">
+            <div class="project-image">
+                <img src="images/retrozone.gif" alt="Retrozone">
+            </div>
+            <div class="project-info">
+                <h3>Retrozone</h3>
+                <p>E-commerce con estética pixel art enfocado en videojuegos retro.</p>
+                <div class="tags">
+                    <span>Logo</span>
+                    <span>JS</span>
+                    <span>Java</span>
+                </div>
+                <div class="buttons">
+                    <a href="https://github.com/JafetSantibanez/Retrozone" class="btn-repo">Repo</a>
+                    <a href="#" class="btn-demo">Demo</a>
+                </div>
+            </div>
+        </div>
+        <!-- (Puedes repetir este bloque para más proyectos) -->
+
+        <!-- Tarjeta 2 -->
+        <div class="project-card">
+            <div class="project-image">
+                <img src="#" alt="Retrozone">
+            </div>
+            <div class="project-info">
+                <h3>Proyectos</h3>
+                <p>.E-commerce con estética ------ enfocado en ---------.</p>
+                <div class="tags">
+                    <span>Logo</span>
+                    <span>JS</span>
+                    <span>Java</span>
+                </div>
+                <div class="buttons">
+                    <a href="#" class="btn-repo">Repo</a>
+                    <a href="#" class="btn-demo">Demo</a>
+                </div>
+            </div>
+        </div>
+        <!-- (Puedes repetir este bloque para más proyectos) -->
+
+        <!-- Tarjeta 3 -->
+        <div class="project-card">
+            <div class="project-image">
+                <img src="#" alt="Retrozone">
+            </div>
+            <div class="project-info">
+                <h3>Projects</h3>
+                <p>E-commerce con estética ------ enfocado en ---------.</p>
+                <div class="tags">
+                    <span>Logo</span>
+                    <span>JS</span>
+                    <span>Java</span>
+                </div>
+                <div class="buttons">
+                    <a href="#" class="btn-repo">Repo</a>
+                    <a href="#" class="btn-demo">Demo</a>
+                </div>
+            </div>
+        </div>
+        <!-- (Puedes repetir este bloque para más proyectos) -->
+
+</div>
+<!-- Sección 7: Contacto (Una sola columna) -->
+<section id="contact" class="contact-section">
+    <div class="contact-card">
+        <h3>¿Hablemos sobre tu próximo proyecto?</h3>
+        <p>Estoy abierta a oportunidades como Full Stack Developer y colaboraciones creativas.</p>
+        
+        <div class="contact-links">
+            <a href="mailto:tu-email@ejemplo.com" class="contact-btn">Email</a>
+            <a href="https://linkedin.com/in/tu-perfil" target="_blank" class="contact-btn">LinkedIn</a>
+            <a href="https://github.com/tu-usuario" target="_blank" class="contact-btn">GitHub</a>
+        </div>
+    </div>
+</section>
+
+
+
 
     
 </section>
-<!---------------------------------------------------- HERO END------------------------------------------------->
 
-      <div class="bento-grid">
-        <div class="card profile-card">
-          <div class="badge">Open to Job Opportunities</div>
-          <h1>Hello, I am Andrea</h1>
-          <p>
-            Full Stack Developer en constante evolución y formación intensiva.
-            Combino mi experiencia en diseño estructurado con el desarrollo de
-            software, enfocada en la optimización de código y soluciones eficientes.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas luctus 
-            eros lacus, non efficitur nuncr ultricies, lectus mi pellentesque dolor, at
-             mauris sit amet elit euismod tristique. Quisque scelerisque nulla vitae tortor lacinia,
-             nec varius risus commodo. Praesent non nibh venenatis, scelerisque nisl eget, suscipit eros. 
-             Duis quis neque eu null interdum tempus. Vestibulum ante ipsum primis in 
-             faucibus orci luctus et ultrices posuere cubilia curae; Vivamus posuere quam e
-             u faucibus egestas. Nunc finibus, 
-          </p>
-        </div>
 
-        <div class="card skills-card">
-          <h3>My Skills</h3>
-          <ul class="skill-list">
-            <li><span>Html</span></li>
-            <li><span>CSS</span></li>
-            <li><span>JavaScript</span></li>
-            <li><span>Tailwind</span></li>
-          </ul>
-        </div>
 
-        <div class="section-title">
-          <h2>Projects</h2>
-        </div>
 
-        <div class="projects-container">
-          <div class="card item-card">
-            <div class="card-image-placeholder">
-              <span class="text-xs opacity-60">HTML / CSS</span>
-            </div>
-            <div class="item-info">
-              <h3>Retrozone</h3>
-              <p>E-commerce con estética pixel art enfocado en videojuegos retro.</p>
-              <div class="tool-tags">
-                <span class="tag">Logo</span>
-                <span class="tag">JS</span>
-                <span class="tag">Java</span>
-              </div>
-              <div class="card-actions">
-                <a href="#" class="action-btn"><i class="fa-brands fa-github"></i> Repo</a>
-                <a href="#" class="action-btn cta"><i class="fa-solid fa-rocket"></i> Demo</a>
-              </div>
-            </div>
-          </div>
 
-          <div class="card item-card">
-            <div class="card-image-placeholder">
-              <span class="text-xs opacity-60">Tool / Tool / Tool</span>
-            </div>
-            <div class="item-info">
-              <h3>Counter Web App</h3>
-              <p>Aplicación web funcional desarrollada con lógica optimizada de control.</p>
-              <div class="tool-tags">
-                <span class="tag">JS</span>
-                <span class="tag">CSS</span>
-              </div>
-              <div class="card-actions">
-                <a href="#" class="action-btn"><i class="fa-brands fa-github"></i> Repo</a>
-                <a href="#" class="action-btn cta"><i class="fa-solid fa-rocket"></i> Demo</a>
-              </div>
-            </div>
-          </div>
 
-          <div class="card item-card">
-            <div class="card-image-placeholder">
-              <span class="text-xs opacity-60">Image / Design</span>
-            </div>
-            <div class="item-info">
-              <h3>Title Project</h3>
-              <p>Descripción breve del tercer proyecto integrado en el portafolio bento.</p>
-              <div class="tool-tags">
-                <span class="tag">Figma</span>
-                <span class="tag">HTML</span>
-              </div>
-              <div class="card-actions">
-                <a href="#" class="action-btn"><i class="fa-brands fa-github"></i> Repo</a>
-                <a href="#" class="action-btn cta"><i class="fa-solid fa-rocket"></i> Demo</a>
-              </div>
-            </div>
-          </div>
-        </div>
 
-        <div class="section-title">
-          <h2>Learning Path • Scrimba</h2>
-        </div>
 
-        <div class="learning-container">
-          <div class="card item-card">
-            <div class="card-image-placeholder">
-              <span class="text-2xl">🏗️</span>
-            </div>
-            <div class="item-info">
-              <h3>Frontend Developer</h3>
-              <p>Especialización en desarrollo de interfaces e interactividad.</p>
-            </div>
-          </div>
+</div> 
 
-          <div class="card item-card">
-            <div class="card-image-placeholder">
-              <span class="text-2xl">☕</span>
-            </div>
-            <div class="item-info">
-              <h3>Java Backend</h3>
-              <p>Estructuras de datos, arquitectura limpia y manejo de bases de datos.</p>
-            </div>
-          </div>
 
-          <div class="card item-card">
-            <div class="card-image-placeholder">
-              <span class="text-2xl">🎨</span>
-            </div>
-            <div class="item-info">
-              <h3>UI/UX Design</h3>
-              <p>Diseño de componentes, layouts bento y optimización visual.</p>
-            </div>
-          </div>
-        </div>
 
-        <div class="footer-socials">
-          <a href="#" class="card social-link-card">
-            <i class="fa-brands fa-linkedin text-2xl mb-2 text-[#6366f1]"></i>
-            <span>Follow me on LinkedIn</span>
-          </a>
-          <a href="#" class="card social-link-card">
-            <i class="fa-brands fa-square-github text-2xl mb-2 text-[#1d1d1f] dark:text-white"></i>
-            <span>GitHub</span>
-          </a>
-          <a href="#" class="card social-link-card">
-            <i class="fa-solid fa-envelope text-2xl mb-2 text-red-500"></i>
-            <span>Mail</span>
-          </a>
-        </div>
 
-      </div>
-    </div>
-    <script src="script.js"></script>
-  </body>
+
+
+
+
+
+
+
+
+
+
+<script src="script.js"></script>
+</body>
 </html>

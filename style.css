@@ -1,483 +1,316 @@
-/*//! ------------------------------------ GENERAL CLEANUP & RESET --------------------------------- */
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box; /* Asegura que los paddings no alteren el tamaño real de las tarjetas */
-}
-
-/*//! ------------------------------------ VARIABLE DEFINITIONS ------------------------------------ */
+/* Variables base */
 
 :root {
-  --bg-color: #f0f2f5;
-  --text-color: #1d1d1f;
-  --accent: #000000;
-  --card-bg: #ffffff;
-  --shadow-color: rgba(0, 0, 0, 0.08);
-  --border-color: rgba(0, 0, 0, 0.05);
-  --tag-bg: #f3f4f6;
-  --hero-title-font: 'Arial Black', 'Helvetica Bold', sans-serif;
-  --mouse-icon-color: #333;
+    --bg-color: #f0f2f5;
+    --text-color: #000000;
+    --hero-title-font: 'Montserrat', sans-serif;
+    --body-font: 'Inter', sans-serif;
+    --accent: #000000; /* Asegúrate de que esto sea un color sólido como negro */
 }
 
-/*//! -------------------------------------- DARK MODE TRIGGER ------------------------------------- */
-
-#theme-switch:checked ~ .main-wrapper {
-  --bg-color: #0f172a;
-  --text-color: #f8fafc;
-  --card-bg: #1e293b;
-  --accent: #818cf8;
-  --shadow-color: rgba(0, 0, 0, 0.3);
-  --border-color: rgba(255, 255, 255, 0.08);
-  --tag-bg: #334155;
-}
-
-body:has(#theme-switch:checked) {
-  --bg-color: #0f172a;
-  --text-color: #f8fafc;
-}
-
-/*//! ---------------------------------- BODY & MAIN WRAPPER ---------------------------------- */
-
-body {
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  font-family: "Inter", system-ui, sans-serif;
-  min-height: 100vh;
-}
-
-.main-wrapper {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 24px; /* Colchón lateral para que el diseño respire y no toque los bordes físicos */
-}
-
-/*//! ------------------------------------ AURORA BACKGROUND EFFECTS -------------------------------- */
-
-.blur-bg-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: -1; /* Se mantiene estático por detrás de tu cuadrícula bento */
-  overflow: hidden;
-  opacity: 0.8;
-}
-
-.blur-glow {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(120px); /* Difumina los círculos para crear el efecto malla de gradiente */
-  opacity: 0.6;
-}
-
-/* Globo 1: Rosa/Lavanda (arriba a la derecha) */
-.glow-1 {
-  top: -5%;
-  right: -10%;
-  width: 60vw;
-  height: 60vh;
-  background: radial-gradient(circle, rgb(255, 0, 191) 0%, rgb(221, 255, 0) 70%);
-}
-
-/* Globo 2: Azul/Sombra (centro a la izquierda) */
-.glow-2 {
-  top: 20%;
-  left: -15%;
-  width: 70vw;
-  height: 70vh;
-  background: radial-gradient(circle, rgb(54, 78, 176) 0%, rgba(40, 39, 38, 0) 70%);
-}
-
-/*//! ------------------------------------- LOGO & THEME SWITCH ------------------------------------ */
-
-header {
-  display: flex;
-  /*justify-content: space-between;*/
-  align-items: center;
-  padding-top: 20px;
-  margin-bottom: 20px;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background-color: var(--bg-color); color: var(--text-color); font-family: var(--body-font); }
+.main-wrapper { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+ { background-color: transparent !important; }
+.main-wrapper { background-color: transparent !important; }
 
 
 
-.logo span {
-  color: var(--accent);
-}
-
-.theme-checkbox {
-  display: none;
-}
-
-.theme-label {
-  cursor: pointer;
-  background: var(--card-bg);
-  padding: 10px 15px;
-  border-radius: 50px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  box-shadow: 0 4px 12px var(--shadow-color);
-  border: 1px solid var(--border-color);
-  transition: all 0.3s ease;
-}
-
-.light-icon { display: block; }
-.dark-icon { display: none; }
-
-#theme-switch:checked ~ .main-wrapper .light-icon { display: none; }
-#theme-switch:checked ~ .main-wrapper .dark-icon { display: block; }
-
-
-/*//! ------------------------ EFECTO CURSOR MAQUINA DE ESCRIBIR ------------------------ */
-
-.typing-cursor {
-  font-weight: 300;
-  color: var(--accent); /* Hereda el color de acento de tu portafolio */
-  animation: blink 0.7s infinite;
-  margin-left: 4px;
-}
-
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
-}
-
-/*//! ------------------------------------ NEW HERO SECTION --------------------------------------------- */
-
-
+/* Grid para el Hero en dos columnas */
 .new-hero-section {
-  padding-top: 100px; /* Acercado de manera óptima al menú de navegación */
-  padding-bottom: 260px;
-}
-
-.section-container {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 40px;
+    padding: 100px 0;
 }
 
 .hero-main-title {
-  font-family: var(--hero-title-font);
-  font-size: 3.5rem;
-  font-weight: 900;
-  color: var(--text-color);
-  line-height: 1.1;
-  margin-bottom: 20px;
+    font-family: var(--hero-title-font);
+    font-size: 5rem;
+    font-weight: 900;
+    line-height: 1;
 }
 
-.hero-sub-title {
-  font-size: 1.2rem;
-  color: var(--text-color);
-  opacity: 0.8;
-  margin-bottom: 0px;
+.hero-sub-title { font-size: 1.2rem; margin-bottom: 10px; }
+
+.hero-image-placeholder {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background: #e2e8f0;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-/* Icono del Mouse */
-.mouse-control {
-  width: 32px;
-  height: 52px;
-  border: 2px solid var(--text-color);
-  border-radius: 16px;
-  display: flex;
-  justify-content: center;
-  padding-top: 8px;
-}
 
-.mouse-icon {
-  width: 6px;
-  height: 10px;
-  background-color: var(--text-color);
-  border-radius: 3px;
-  display: block;
-}
-
-/* Navegación Superior Derecha */
+/*NAV*/
+/* Navegación Superior */
 .top-nav {
-  display: flex;            /* Convierte el menú en contenedor flexible */
-  justify-content: center;  /* Alinea las palabras horizontalmente al centro */
-  align-items: center;      /* Alinea las palabras verticalmente al centro */
-  gap: 30px;                /* Mantiene la separación limpia entre cada enlace */
-  text-align: center;       /* Respaldo para alineación de texto */
-  width: 100%;              /* Asegura que ocupe el ancho disponible para poder centrarse */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding: 30px 0;
+    width: 100%;
 }
-
 
 .nav-link {
-  text-decoration: none;
-  font-weight: 600;
-  color: var(--text-color);
-  opacity: 0.8;
-  transition: opacity 0.2s ease;
+    text-decoration: none;
+    font-weight: 600;
+    color: var(--text-color);
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
 }
 
 .nav-link:hover {
-  opacity: 1;
+    opacity: 1; /* El hover que querías */
 }
 
-/*//! -------------------------------------- BENTO GRID LAYOUT BASE ----------------------------------- */
 
-.bento-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
-}
 
-.section-title h2 {
-  font-size: 1.6rem;
-  font-weight: 700;
-  margin-top: 15px;
-  margin-bottom: 15px;
-  opacity: 0.9;
-}
 
-/*//! -------------------------------------- GLOBAL CARD STYLE ------------------------------------- */
-
-.card {
-  background-color: var(--card-bg);
-  border-radius: 30px; /* Bordes premium idénticos a tus bocetos en papel */
-  padding: 30px;
-  border: 1px solid var(--border-color);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 10px 25px var(--shadow-color);
-}
-
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 35px var(--shadow-color);
-}
-
-/*//! ---------------------------------------- PROFILE CARD ---------------------------------------- */
-
+/*TRAJETA NEGRA */
+/* Estilos para la tarjeta negra */
 .profile-card {
-  background-color: var(--accent);
-  color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
-  min-height: 220px;
+    background-color: var(--accent); /* Negro definido en :root */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px;
+    margin-top: 40px;
+    border-radius: 30px;
+    position: relative;
+    overflow: hidden;
 }
 
 .badge {
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(10px);
-  padding: 6px 14px;
-  border-radius: 25px;
-  font-size: 0.7rem;
-  font-weight: 600;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  align-self: flex-start;
-  margin-bottom: 20px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    padding: 6px 14px;
+    border-radius: 25px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    align-self: flex-start;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
 }
 
 .profile-card h1 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  line-height: 1.2;
-  margin-bottom: 12px;
-  color: #ffffff;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: #ffffff;
 }
 
 .profile-card p {
-  font-size: 1.05rem;
-  line-height: 1.6;
-  opacity: 0.95;
-  max-width: 800px;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    opacity: 0.9;
+    max-width: 800px;
 }
 
-/*//! ----------------------------------------- SKILLS CARD ---------------------------------------- */
 
-.skills-card {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+/*HABILIDADES*/
+.skills-section {
+    margin-top: 60px; /* Esto corrige la separación que tenías antes */
+    margin-bottom: 40px;
+}
+
+/* Título limpio, sin borde ni forma de píldora */
+.skills-section h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--text-color);
+    opacity: 0.9;
+    font-weight: bolder;
 }
 
 .skill-list {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
 }
 
+/* Solo las habilidades tienen forma de píldora */
 .skill-list li span {
-  background: var(--bg-color);
-  color: var(--text-color);
-  padding: 8px 18px;
-  border-radius: 14px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  display: inline-block;
-  border: 1px solid var(--border-color);
-  transition: all 0.2s ease;
+    background: transparent;
+    color: var(--text-color);
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    display: inline-block;
+    border: 1px solid var(--text-color);
+    opacity: 0.7;
+    transition: all 0.3s ease;
 }
 
 .skill-list li span:hover {
-  border-color: var(--accent);
-  background: var(--card-bg);
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+    opacity: 1;
+    transform: translateY(-3px);
+    cursor: default;
 }
 
-/*//! ------------------------------- ROWS GRID SYSTEM (3 COLUMNS) --------------------------------- */
+/*CARD PROYECTO/*
 
-.projects-container, 
-.learning-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+/* Grid de 3 columnas para Bento Layout */
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 25px;
 }
 
-/*//! ------------------------------------ ITEM CARD (PROJECTS & LEARNING) ---------------------------- */
-
-.item-card {
-  display: flex;
-  flex-direction: column;
-  padding: 15px;
-  height: 100%;
+/* Marco y estructura de la tarjeta */
+.project-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 24px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
 }
 
-.card-image-placeholder {
-  width: 100%;
-  height: 150px;
-  background: var(--bg-color);
-  border-radius: 18px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 15px;
-  border: 1px solid var(--border-color);
+.project-image {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 16px;
 }
 
-.item-info h3 {
-  font-size: 1.2rem;
-  font-weight: 700;
-  margin-top: 0px;     /* Limpia herencias no deseadas del navegador */
-  margin-bottom: 6px;  /* Espaciado perfecto y controlado antes del párrafo */
+.project-image img { width: 100%; height: 100%; object-fit: cover; }
+
+/* Tipografía y Espaciado */
+.project-info h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 8px; }
+.project-info p { font-size: 0.95rem; color: #4a4a4a; margin-bottom: 16px; line-height: 1.5; }
+
+/* Tags (etiquetas gris claro redondeadas) */
+.tags { display: flex; gap: 8px; margin-bottom: 20px; }
+.tags span {
+    background: #f1f5f9;
+    color: #333;
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
 }
 
-.item-info p {
-  font-size: 0.9rem;
-  opacity: 0.7;
-  line-height: 1.5;
-  margin-top: 0px;
-  margin-bottom: 0px;
+/* Botones Repo/Demo */
+.buttons { display: flex; gap: 10px; margin-top: auto; }
+.btn-repo, .btn-demo {
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+.btn-repo { background: #f1f5f9; color: #000; }
+.btn-demo { background: #000; color: #fff; }
+
+
+/* --- Magia: Efectos Hover --- */
+
+/* 1. Elevación suave de toda la tarjeta */
+.project-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Tags de Herramientas */
-.tool-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-top: 10px;    /* Separa las tecnologías de la descripción de arriba */
-  margin-bottom: 15px; /* Controla que el título 'RetroZone' no quede volando lejos */
+.project-card:hover {
+    transform: translateY(-8px); /* Se levanta un poco */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1); /* Crea profundidad */
 }
 
-.tag {
-  background: var(--tag-bg);
-  font-size: 0.75rem;
-  font-weight: 600;
-  padding: 4px 10px;
-  border-radius: 8px;
-  opacity: 0.9;
+/* 2. Efecto en los botones */
+.btn-repo, .btn-demo {
+    transition: all 0.2s ease;
 }
 
-/* Contenedor de Botones Repo / Demo */
-.card-actions {
-  display: flex;
-  gap: 12px;           /* Distancia estética idéntica entre ambos botones */
-  margin-top: auto;    /* Empuja los botones de forma magnética al fondo de la tarjeta */
-  padding-top: 15px;
+.btn-repo:hover {
+    background: #e2e8f0; /* Un tono un poco más oscuro al pasar el mouse */
 }
 
-.action-btn {
-  flex: 1;
-  text-align: center;
-  padding: 10px 16px;  /* Le da suficiente cuerpo para que luzca táctil y premium */
-  font-size: 0.85rem;
-  font-weight: 600;
-  border-radius: 10px;
-  border: 1px solid var(--border-color);
-  color: var(--text-color);
-  text-decoration: none;
-  background: var(--bg-color);
-  transition: all 0.2s ease;
-
-  /* ---> CENTRADO EXACTO CON FLEXBOX <--- */
-  display: inline-flex;     
-  justify-content: center;  
-  align-items: center;      
-  gap: 8px;                 
+.btn-demo:hover {
+    background: #333; /* Un negro ligeramente más claro */
+    transform: scale(1.02); /* Crece un poquito */
 }
 
-.action-btn:hover {
-  background: var(--card-bg);
-  border-color: var(--text-color);
+/* 3. Efecto sutil en los tags */
+.tags span {
+    transition: background 0.2s ease;
 }
 
-/* Variación para el botón Llamativo/Call To Action (Demo - Negro) */
-.action-btn.cta {
-  background: var(--accent);
-  color: white;
-  border-color: var(--accent);
+.tags span:hover {
+    background: #e2e8f0; /* Se oscurece ligeramente el fondo de la etiqueta */
+    cursor: default;
 }
 
-.action-btn.cta:hover {
-  opacity: 0.9;
-  transform: translateY(-1px);
+
+/*CONACT  */
+
+
+
+.contact-section {
+    margin-top: 80px;
+    margin-bottom: 60px;
+    display: flex;
+    justify-content: center; /* Centra la tarjeta horizontalmente */
 }
 
-/* Limpieza de iconos dentro de los botones */
-.action-btn i {
-  display: inline-block;
-  flex-shrink: 0;
-  line-height: 1;
+
+.contact-card {
+    color: #000000;
+    padding: 60px 40px;
+    border-radius: 30px;
+    text-align: center;
+    width: 100%;       /* Ocupa todo el espacio disponible */
+    max-width: 1100px; /* Igual que tu .main-wrapper para mantener alineación */
+    margin: 0 auto;    /* Centrado automático */
 }
 
-/*//! ----------------------------------------- FOOTER SOCIALS ---------------------------------------- */
-
-.footer-socials {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  margin-top: 10px;
-}
-
-.social-link-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 25px;
-  text-decoration: none;
-  color: var(--text-color);
-  font-weight: 600;
-  font-size: 0.95rem;
-  text-align: center;
-}
-
-/*//! -------------------------------------- RESPONSIVE DESIGN ------------------------------------- */
-
-/* Vistas tipo Tablet (Pantallas menores de 992px) */
-@media (max-width: 992px) {
-  .projects-container, .learning-container, .footer-socials {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* Vistas tipo Móvil (Pantallas menores de 640px) */
-@media (max-width: 640px) {
-  .projects-container, .learning-container, .footer-socials {
-    grid-template-columns: 1fr;
-  }
-  .profile-card h1 {
+.contact-card h3 {
     font-size: 2rem;
-  }
-  .hero-main-title {
-    font-size: 2.5rem;
-  }
+    margin-bottom: 15px;
+}
+
+.contact-card p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+/* Centrado de los botones */
+.contact-links {
+    display: flex;
+    justify-content: center; /* Asegura que los botones estén centrados */
+    flex-wrap: wrap; /* Permite que se acomoden si la pantalla es muy estrecha */
+    gap: 15px;
+}
+
+.contact-btn {
+    padding: 12px 24px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 600;
+    color: #000;
+    background: #fff;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.contact-btn:hover {
+    transform: translateY(-3px);
+    background: #e2e8f0;
 }
